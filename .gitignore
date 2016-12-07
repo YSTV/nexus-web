@@ -16,6 +16,8 @@
 .c9/
 *.launch
 .settings/
+*.swp
+*.swo
 
 # misc
 /.sass-cache

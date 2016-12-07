@@ -1,3 +1,43 @@
-<h1>
-  {{title}}
-</h1>
+<md-sidenav-layout>
+  <md-sidenav #sidenav mode="side" opened="true" class="app-sidenav">
+    <md-toolbar color="primary">
+      <span>Nexus</span>
+    </md-toolbar>
+  </md-sidenav>
+  <md-toolbar>
+    <button md-button (click)="sidenav.toggle()">
+      <i class="material-icons app-toolbar-menu">menu</i>
+    </button>
+    <span>Dashboard</span>
+
+    <span class="app-toolbar-filler"></span>
+
+  </md-toolbar>
+  <div class="app-content">
+    <md-card>
+      <md-card-title>Streams</md-card-title>
+      <md-card-content></md-card-content>
+      <md-card-actions>
+        <button md-mini-fab (click)=""><i class="material-icons">add</i></button>
+      </md-card-actions>
+    </md-card>
+
+    <md-card>
+      <md-card-title>Encoders</md-card-title>
+      <table>
+        <thead>
+          <th>Hostname</th>
+          <th>Status</th>
+          <th>Streams</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>encode0.ystv.york.ac.uk</td>
+            <td>Load: span.</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </md-card>
+  </div>
+</md-sidenav-layout>

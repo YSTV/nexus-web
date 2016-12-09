@@ -1,43 +1,47 @@
-<md-sidenav-layout>
-  <md-sidenav #sidenav mode="side" opened="true" class="app-sidenav">
-    <md-toolbar color="primary">
-      <span>Nexus</span>
-    </md-toolbar>
-  </md-sidenav>
-  <md-toolbar>
-    <button md-button (click)="sidenav.toggle()">
-      <i class="material-icons app-toolbar-menu">menu</i>
-    </button>
-    <span>Dashboard</span>
+<md-toolbar color="primary">
+  <span>Nexus</span>
 
-    <span class="app-toolbar-filler"></span>
+  <span class="app-toolbar-filler"></span>
 
-  </md-toolbar>
-  <div class="app-content">
-    <md-card>
-      <md-card-title>Streams</md-card-title>
-      <md-card-content></md-card-content>
-      <md-card-actions>
-        <button md-mini-fab (click)=""><i class="material-icons">add</i></button>
-      </md-card-actions>
-    </md-card>
+  <span>{{ connectionStatus }}</span>
 
-    <md-card>
-      <md-card-title>Encoders</md-card-title>
-      <table>
-        <thead>
-          <th>Hostname</th>
-          <th>Status</th>
-          <th>Streams</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td>encode0.ystv.york.ac.uk</td>
-            <td>Load: span.</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </md-card>
-  </div>
-</md-sidenav-layout>
+</md-toolbar>
+<div class="app-content">
+  <md-card id="streams">
+    <md-card-title>Streams</md-card-title>
+    <md-card-content class="flex-container">
+      <md-card class="stream" *ngFor="let stream of streams">
+        <md-card-title>{{ stream.name }}</md-card-title>
+        <md-card-content>
+          <i class="material-icons">public</i> Public: {{ stream.isPublic ? 'Yes' : 'No' }}
+        </md-card-content>
+        <md-card-actions>
+          <button md-icon-button md-tooltip="Copy stream URL"><i class="material-icons">content_copy</i></button>
+          <button md-icon-button (click)="deleteStream(stream)"><i class="material-icons">delete</i></button>
+        </md-card-actions>
+      </md-card>
+    </md-card-content>
+    <md-card-actions>
+      <button md-icon-button (click)="getStreams()"><i class="material-icons">refresh</i></button>
+      <button md-icon-button (click)="openNewStreamDialog()"><i class="material-icons">add</i></button>
+    </md-card-actions>
+  </md-card>
+
+  <md-card>
+    <md-card-title>Encoders</md-card-title>
+    <table>
+      <thead>
+        <th>Hostname</th>
+        <th>Status</th>
+        <th>Streams</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>encode0.ystv.york.ac.uk</td>
+          <td>Load: span.</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </md-card>
+</div>

@@ -1,3 +1,18 @@
-<p>
-  new-stream-dialog works!
-</p>
+<md-toolbar color="primary">
+  Add New Stream
+</md-toolbar>
+<md-tab-group>
+  <md-tab label="General">
+    <md-input [(ngModel)]="stream.name" placeholder="Stream Name"></md-input>
+    <md-checkbox [(ngModel)]="stream.is_public">Publicly viewable</md-checkbox>
+  </md-tab>
+  <md-tab label="Facebook">
+    <md-checkbox>Enabled</md-checkbox>
+  </md-tab>
+  <md-tab label="YouTube">
+    <md-checkbox>Enabled</md-checkbox>
+  </md-tab>
+</md-tab-group>
+<md-toolbar>
+  <button md-raised-button (color)="primary" (click)="createStream()">Create</button>
+</md-toolbar>

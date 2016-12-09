@@ -6,11 +6,14 @@ import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { NewStreamDialogComponent } from './new-stream-dialog/new-stream-dialog.component';
+import { BackendService } from './backend.service';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NewStreamDialogComponent
+    NewStreamDialogComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +21,13 @@ import { NewStreamDialogComponent } from './new-stream-dialog/new-stream-dialog.
     HttpModule,
     MaterialModule.forRoot()
   ],
-  providers: [],
+  entryComponents: [
+    NewStreamDialogComponent,
+    ConfirmDialogComponent,
+  ],
+  providers: [
+    BackendService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
